@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js'></script>
+
+    <style>
+        img {
+            width:100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .grid-item:nth-child(odd) > img {
+            height:500px;
+        }
+
+        .grid-gutter-sizer {
+            width: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class='container'>
+        <div class='row grid'>
+            <div class='col-md-6 grid-sizer'></div>
+            <div class='grid-gutter-sizer'></div>
+        </div>
+    </div>
+
+    <script>
+
+         // const konstanta='3.141';
+
+        // let kintamasis;
+
+        // var kintamasis;
+
+        // var zmogus = {
+        //     'vardas': 'Vardenis',
+        //     'pavarde': 'Pavardenis',
+        //     'kodas': 35856,
+        //     'apibudinmas': ['aukstas', 'turtingas', 'nemoka siuti']
+        // };
+
+        // var zmogus1 = {
+        //     'vardas': 'Vardenis1',
+        //     'pavarde': 'Pavardenis1',
+        //     'kodas': 35855,
+        //     'apibudinmas': ['zemas', 'turtingas', 'moka siuti']
+        // };
+        
+         // console.log(zmogus.vardas);
+        // console.log(zmogus1.pavarde);
+
+        // var grupe;
+
+        // grupe = [zmogus, zmogus1];
+
+        // for(var i = 0; i < grupe.length; i++ ) {
+        //     console.log(grupe[i].vardas)
+        // }
+        
+        // console.log(grupe);
+
+        // var x = 1;
+
+
+        // var masyvas;
+        // var informacija = "";
+
+        // masyvas = {
+            // "image1": "https://images.unsplash.com/photo-1593642533144-3d62aa4783ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHwxfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image2": "https://images.unsplash.com/photo-1620654124159-6dd587e973be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwyfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "image3": "https://images.unsplash.com/photo-1620641622396-9482de06faa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwzfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image4": "https://images.unsplash.com/photo-1620629228754-6ed8b519bd0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image5": "https://images.unsplash.com/photo-1620623318802-1c59fc26abe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw1fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image6": "https://images.unsplash.com/photo-1569389397653-c04fe624e663?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHw2fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "image7": "https://images.unsplash.com/photo-1620607651594-205684060fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image8": "https://images.unsplash.com/photo-1620599855304-2b5262157852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image9": "https://images.unsplash.com/photo-1620655796542-4ac76a76743c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw5fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image10": "https://images.unsplash.com/photo-1620591309146-f5b0dc646b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2NzQ3NDA&ixlib=rb-1.",
+            // "image11": "https://images.unsplash.com/photo-1620591309146-f5b0dc646b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2NzQ3NDA&ixlib=rb-1.",
+            // "image12": "https://images.unsplash.com/photo-1620655796542-4ac76a76743c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw5fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image13": "https://images.unsplash.com/photo-1620599855304-2b5262157852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image14": "https://images.unsplash.com/photo-1620607651594-205684060fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image15": "https://images.unsplash.com/photo-1569389397653-c04fe624e663?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHw2fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "image16": "https://images.unsplash.com/photo-1620623318802-1c59fc26abe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw1fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image17": "https://images.unsplash.com/photo-1620629228754-6ed8b519bd0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image18": "https://images.unsplash.com/photo-1620641622396-9482de06faa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwzfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "image19": "https://images.unsplash.com/photo-1620654124159-6dd587e973be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwyfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "image20": "https://images.unsplash.com/photo-1593642533144-3d62aa4783ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHwxfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+
+            // "urls": [
+            // "https://images.unsplash.com/photo-1593642533144-3d62aa4783ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHwxfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620654124159-6dd587e973be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwyfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "https://images.unsplash.com/photo-1620641622396-9482de06faa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwzfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620629228754-6ed8b519bd0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620623318802-1c59fc26abe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw1fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1569389397653-c04fe624e663?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHw2fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "https://images.unsplash.com/photo-1620607651594-205684060fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620599855304-2b5262157852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620655796542-4ac76a76743c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw5fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620591309146-f5b0dc646b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2NzQ3NDA&ixlib=rb-1.",
+            // "https://images.unsplash.com/photo-1593642533144-3d62aa4783ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHwxfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620654124159-6dd587e973be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwyfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "https://images.unsplash.com/photo-1620641622396-9482de06faa0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwzfHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620629228754-6ed8b519bd0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw0fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620623318802-1c59fc26abe4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw1fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1569389397653-c04fe624e663?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MXwxfGFsbHw2fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.",
+            // "https://images.unsplash.com/photo-1620607651594-205684060fd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw3fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620599855304-2b5262157852?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw4fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620655796542-4ac76a76743c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHw5fHx8fHx8Mnx8MTYyMDY3NDc0MA&ixlib=rb-1.2",
+            // "https://images.unsplash.com/photo-1620591309146-f5b0dc646b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjk4NjR8MHwxfGFsbHwxMHx8fHx8fDJ8fDE2MjA2NzQ3NDA&ixlib=rb-1.",
+
+            // ],
+
+        // };
+
+        // var url;
+
+        // url = masyvas.urls[3];
+
+        // console.log(url);
+
+
+        // for(var i = 1; i < 21; i++ ) {
+            // console.log(i);
+        // }
+
+        // for(var i = 0; i < masyvas.urls.length; i++) {
+
+        //     console.log(masyvas.urls[i]);
+
+        //     var imel = document.createElement('img');
+        //     imel.src = masyvas.urls[i];
+        //     document.querySelector(".container").append(imel)
+        // }
+
+        // informacija = masyvas.image10;
+
+        //pvz
+
+        // var imel = document.createElement("img");
+        // imel.src = masyvas.image1;
+        // document.querySelector('container').append(imel);
+
+        // var imel1 = document.createElement("img");
+        // imel.src = masyvas.image2;
+        // document.querySelector('container').append(imel);
+
+        // var imel2 = document.createElement("img");
+        // imel.src = masyvas.image3;
+        // document.querySelector('container').append(imel);
+
+        // var imel3 = document.createElement("img");
+        // imel.src = masyvas.image4;
+        // document.querySelector('container').append(imel);
+
+        
+
+        // console.log(informacija);
+
+        // console.log(masyvas);
+
+        
+
+        fetch("https://api.unsplash.com/photos/?client_id=BL6GxFw6TnTjKO9HAs5vlTSJDcttPRei0pK1H2eUM4c&page=2")
+        .then(res => res.json())
+        .then(data => {
+        
+          // console.log(data));
+
+          for(var i = 0; i < data.length; i++ ) {
+                    console.log(data[i].urls.regular);
+                    
+                    //pavadinimo atvaizdavimas
+
+                    var pElement = document.createElement('p');
+                    pElement.classList.add('title');
+                    pElement.innerText = data[i].alt_description;
+                    
+                    //susikuriama paveiksliuka
+                    
+                    var imageElement = document.createElement('img');
+                    imageElement.src = data[i].urls.regular;
+
+                    //susikuriame div
+                    var divElement = document.createElement('div');
+                    divElement.classList.add('col-md-6');
+                    divElement.classList.add('grid-item');
+
+                    //prie div prikabiname img ir p
+                    divElement.append(imageElement);
+                    divElement.append(pElement);
+
+                    //div prikabiname prie grid
+                    document.querySelector('.grid').append(divElement);
+                   
+                }
+                
+                var iso = new Isotope('.grid',{
+                    itemSelector: '.grid-item',
+                    stagger: 30,
+                    getSortData: {
+                        title: '.title'
+                    },
+                    masonry: {
+                        columnWidth: '.grid-sizer',
+                        gutter: '.grid-gutter-sizer'
+                    },
+
+                    sortBy: 'title',
+                    sortAscending: true
+                });
+            }
+        );
+
+    </script>
+</body>
+</html>
